@@ -31,12 +31,24 @@ MIT-style license, see [INSTALL.txt](http://github.com/jheusala/node-fin-id/blob
 Initializing
 ------------
 
-Every feature is a property of the library:
+Each feature has a property:
 
     var hetu = require('fin-id').hetu;
 
-See [examples/](http://github.com/jheusala/js-snippets/tree/master/examples) for full examples.
+See [examples/](http://github.com/jheusala/node-fin-id/tree/master/examples) for full examples.
 
 Hetu
 ----
 
+The call `hetu.check(hetu)` returns `true` if the argument is valid ID:
+
+	if(hetu.check('010171-1234')) console.log("valid");
+	else console.log("invalid");
+
+The call `hetu.parse(hetu)` returns an object with additional information:
+
+	var parsed = hetu.parse('010171-1234');
+	if(parsed) {
+		console.log("birthday is " + parsed.date());  // Fri, 01 Jan 1971
+		console.log("sex is " + parsed.sex());        // 'female'
+	}

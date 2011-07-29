@@ -1,4 +1,5 @@
-Copyright (C) 2011 by Jaakko-Heikki Heusala <jheusala@iki.fi>
+Copyright (C) 2011 by Jaakko-Heikki Heusala <jheusala@iki.fi> (http://www.jhh.me)
+              2009 by Mux F-Production <contact@mux.fi> (http://mux.fi/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of 
 this software and associated documentation files (the "Software"), to deal in 

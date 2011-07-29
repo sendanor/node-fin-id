@@ -31,7 +31,7 @@ MIT-style license, see [INSTALL.txt](http://github.com/jheusala/node-fin-id/blob
 Initializing
 ------------
 
-Each feature has a property:
+Each feature is a property:
 
     var hetu = require('fin-id').hetu;
 

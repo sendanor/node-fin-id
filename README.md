@@ -52,3 +52,8 @@ The call `hetu.parse(hetu)` returns an object with additional information:
 		console.log("birthday is " + parsed.date());  // Fri, 01 Jan 1971
 		console.log("sex is " + parsed.sex());        // 'female'
 	}
+
+TODO
+----
+
+* Finnish y-tunnus and VAT number: See [Y-tunnus (finnish)](http://tarkistusmerkit.teppovuori.fi/tarkmerk.htm#y-tunnus1)

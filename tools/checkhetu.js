@@ -7,9 +7,9 @@ var hetu = require('fin-id').hetu,
     foreach = require('snippets').foreach;
 
 foreach(argv._).each(function(value) {
-	var parsed = hetu.parse('010171-1000'),
+	var parsed = hetu.parse(value),
 	    d = parsed.date();
-	if(parsed) {
+	if(parsed.check()) {
 		console.log(value + ': born ' + d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate() + ', ' + parsed.sex() );
 	} else {
 		console.log(value + ': Failed to parse hetu');

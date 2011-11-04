@@ -1,7 +1,7 @@
 {
   "name": "fin-id",
   "description": "Finland Identity Number Library",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "homepage": "http://github.com/jheusala/node-fin-id",
   "repository": {
     "type": "git",

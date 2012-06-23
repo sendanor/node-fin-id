@@ -2,7 +2,7 @@
 /* Simple shell tool to check HETU(s) */
 
 var hetu = require('fin-id').hetu,
-    sys = require('sys'),
+    util = require('util'),
     argv = require('optimist').argv,
     foreach = require('snippets').foreach;
 

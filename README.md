@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/jheusala/node-fin-id.png)](http://travis-ci.org/jheusala/node-fin-id)
 Finnish Identity Number Library
 ===============================
 

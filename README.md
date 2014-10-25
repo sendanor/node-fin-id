@@ -4,13 +4,14 @@ Finnish Identity Number Library
 Description
 -----------
 
-This library is a collection of functions dealing with finnish specific 
+This library is a collection of functions dealing with Finnish specific 
 identification numbers.
 
 Features
 --------
 
-* hetu -- Check finnish HETU numbers
+* hetu -- Check Finnish HETU numbers
+* ytunnus -- Check Finnish corporate IDs
 
 Installation for Node.js
 ------------------------
@@ -56,4 +57,4 @@ The call `hetu.parse(hetu)` returns an object with additional information:
 TODO
 ----
 
-* Finnish y-tunnus and VAT number: See [Y-tunnus (finnish)](http://tarkistusmerkit.teppovuori.fi/tarkmerk.htm#y-tunnus1)
+* IBAN bank numbers: See [International bank number (Finnish)](http://tarkistusmerkit.teppovuori.fi/tarkmerk.htm#iban)

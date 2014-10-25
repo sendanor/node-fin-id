@@ -1,3 +1,5 @@
+[![Build Status](https://secure.travis-ci.org/Sendanor/node-fin-id.png?branch=master)](http://travis-ci.org/Sendanor/node-fin-id)
+
 Finnish Identity Number Library
 ===============================
 

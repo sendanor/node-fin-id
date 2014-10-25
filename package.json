@@ -1,17 +1,30 @@
 {
   "name": "fin-id",
   "description": "Finland Identity Number Library",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "homepage": "http://github.com/jheusala/node-fin-id",
+  "scripts": {
+    "test": "npm run test-spec",
+    "test-dot": "mocha -u bdd -c -R dot tests/test-*.js",
+    "test-list": "mocha -u bdd -c -R list tests/test-*.js",
+    "test-spec": "mocha -u bdd -c -R spec tests/test-*.js",
+    "test-progress": "mocha -u bdd -c -R progress tests/test-*.js",
+    "test-min": "mocha -u bdd -c -R min tests/test-*.js",
+    "test-markdown": "mocha -u bdd -c -R markdown tests/test-*.js",
+    "build-tests.md": "npm run test-markdown > tests.md",
+    "lint": "node-lint src/ --config=lint.json",
+    "jshint": "jshint src/"
+  },
+  "bin": {
+    "check-hetu": "./src/bin/check-hetu.js",
+    "checkhetu": "./src/bin/check-hetu.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/jheusala/node-fin-id.git"
   },
-  "bin":{
-    "checkhetu" : "./tools/checkhetu.js"
-  },
   "author": "Jaakko-Heikki Heusala <jheusala@iki.fi> (http://www.jhh.me)",
-  "main": "lib/fin-id.js",
+  "main": "src/index.js",
   "directories": {
     "lib": "lib"
   },
@@ -19,8 +32,14 @@
     "node": "*"
   },
   "dependencies": {
-    "optimist": "*",
-    "snippets": "*"
+    "minimist": ">= 1.1.0 < 1.2.0",
+    "snippets": ">= 0.0.6 < 0.1.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "nor-debug"    : "*",
+    "nor-is"       : "*",
+    "lint"         : "*",
+    "jshint"       : "*",
+    "mocha"        : "*"
+  }
 }

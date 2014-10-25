@@ -1,10 +1,10 @@
-/* 
+/*
  * Finnish Identity Number Library
- * https://github.com/jheusala/node-fin-id
- * Version 0.0.20110729
+ * https://github.com/sendanor/node-fin-id
  */
 
 /*
+ * Copyright (C) 2014 by Sendanor <info@sendanor.fi> (http://www.sendanor.fi),
  * Copyright (C) 2011 by Jaakko-Heikki Heusala <jheusala@iki.fi>
  * 
  * Permission is hereby granted, free of charge, to any person obtaining a copy of 
@@ -26,6 +26,11 @@
  * SOFTWARE.
  */
 
-exports.hetu = require('./hetu.js');
+"use strict";
+
+module.exports = {
+	"hetu": require('./hetu.js'),
+	"ytunnus": require('./ytunnus.js')
+};
 
 /* EOF */

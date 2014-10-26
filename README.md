@@ -23,8 +23,9 @@ Simplest way to install is to use [npm](http://npmjs.org/), just simply `npm ins
 Authors
 -------
 
-* Mux F-productions
 * Jaakko-Heikki Heusala <jheusala@iki.fi>
+* Mux F-productions  <contact@mux.fi>
+* Juho Vähäkangas <juhov@iki.fi>
 
 License
 -------

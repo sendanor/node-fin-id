@@ -4,8 +4,9 @@
  */
 
 /**
- * Copyright (c) 2014 Juho Vähäkangas
- * Copyright (c) 2014 Jaakko-Heikki Heusala <jheusala@iki.fi>
+ * Copyright (C) 2014 by Sendanor <info@sendanor.fi> (http://www.sendanor.fi),
+ * Copyright (c) 2014 by Jaakko-Heikki Heusala <jheusala@iki.fi>
+ * Copyright (c) 2014 by Juho Vähäkangas <juhov@iki.fi>
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy of
  * this software and associated documentation files (the "Software"), to deal in

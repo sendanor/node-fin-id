@@ -20,8 +20,31 @@ describe('hetu', function(){
 		debug.assert(fin_id.hetu.check).is('function');
 	});
 
-	//it('', function(){
-	//});
+	it('.check() works', function(){
+		debug.assert( fin_id ).is('object');
+		debug.assert( fin_id.hetu ).is('object');
+		debug.assert( fin_id.hetu.check ).is('function');
+
+		debug.assert( fin_id.hetu.check('010171-1000') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('010171-1234') ).is('boolean').equals(false);
+		debug.assert( fin_id.hetu.check('010171-1985') ).is('boolean').equals(true);
+	});
+
+	it('.check() works', function(){
+		debug.assert( fin_id ).is('object');
+		debug.assert( fin_id.hetu ).is('object');
+		debug.assert( fin_id.hetu.parse ).is('function');
+
+		var parsed = fin_id.hetu.parse('010171-1000');
+
+		var date = parsed.date();
+		debug.assert( date ).is('date');
+		debug.assert( date.getFullYear() ).is('number').equals(1971);
+		debug.assert( date.getMonth() ).is('number').equals(0);
+		debug.assert( date.getDate() ).is('number').equals(1);
+
+		debug.assert( parsed.sex() ).is('string').equals('female');
+	});
 
 });
 

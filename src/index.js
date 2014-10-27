@@ -30,6 +30,7 @@
 
 module.exports = {
 	"hetu": require('./hetu.js'),
+	"refnum": require('./refnum.js'),
 	"ytunnus": require('./ytunnus.js')
 };
 

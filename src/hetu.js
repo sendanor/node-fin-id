@@ -147,7 +147,7 @@ function check_hetu_string (hetu) {
 	return parse_hetu(hetu).check();
 }
 
-/* Exports */
+// Exports
 module.exports = {
 	"parse": parse_hetu,
 	"check": check_hetu_string

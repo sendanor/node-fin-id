@@ -37,7 +37,9 @@ Initializing
 
 Each feature is a property:
 
-    var hetu = require('fin-id').hetu;
+```javascript
+var hetu = require('fin-id').hetu;
+```
 
 See [examples/](http://github.com/jheusala/node-fin-id/tree/master/examples) for full examples.
 
@@ -46,32 +48,67 @@ Hetu
 
 The call `hetu.check(hetu)` returns `true` if the argument is valid ID:
 
-	if(hetu.check('010171-1234')) console.log("valid");
-	else console.log("invalid");
+```javascript
+if(hetu.check('010171-1234')) console.log("valid");
+else console.log("invalid");
+```
 
 The call `hetu.parse(hetu)` returns an object with additional information:
 
-	var parsed = hetu.parse('010171-1234');
-	if(parsed) {
-		console.log("birthday is " + parsed.date());  // Fri, 01 Jan 1971
-		console.log("sex is " + parsed.sex());        // 'female'
-	}
-
+```javascript
+var parsed = hetu.parse('010171-1234');
+if(parsed) {
+	console.log("birthday is " + parsed.date());  // Fri, 01 Jan 1971
+	console.log("sex is " + parsed.sex());        // 'female'
+}
+```
 
 Reference number (viitenumero)
 ------------------------------
 
-	var refnum = require('fin-id').refnum;
+```javascript
+var refnum = require('fin-id').refnum;
+```
 
 To create reference number use `.create(num)`
 
-	refnum.create(1234);
-	=> '12344'
+```javascript
+refnum.create(1234);
+=> '12344'
+```
 
 To check reference number use `.check(num)`
 
-	refnum.check('12344');
-	=> true
+```javascript
+refnum.check('12344');
+=> true
+```
+
+Virtual bank transfer number (virtuaaliviivakoodi)
+--------------------------------------------------
+
+```javascript
+var viivakoodi = require('fin-id').pankkiviivakoodi;
+```
+
+To create number use `.create(...)`
+
+```javascript
+refnum.create({
+	iban: 'FI21 1234 5600 0007 85',
+	cents: 1000,
+	duedate: '2015-03-01',
+	refnum: 13
+});
+=> '421123456000007850000100000000000000000000000013150301'
+```
+
+To check numbers use `.check(num)`
+
+```javascript
+refnum.check('421123456000007850000100000000000000000000000013150301');
+=> true
+```
 
 TODO
 ----

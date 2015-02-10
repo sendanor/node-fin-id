@@ -94,7 +94,7 @@ var viivakoodi = require('fin-id').pankkiviivakoodi;
 To create number use `.create(...)`
 
 ```javascript
-refnum.create({
+viivakoodi.create({
 	iban: 'FI21 1234 5600 0007 85',
 	cents: 1000,
 	duedate: '2015-03-01',
@@ -106,7 +106,7 @@ refnum.create({
 To check numbers use `.check(num)`
 
 ```javascript
-refnum.check('421123456000007850000100000000000000000000000013150301');
+viivakoodi.check('421123456000007850000100000000000000000000000013150301');
 => true
 ```
 

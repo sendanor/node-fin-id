@@ -130,8 +130,8 @@ function viivakoodi_check(code) {
 	if(!is.string(code)) { return false; }
 	if(code[0] !== '4') { return false; }
 	if(code.length !== 54) { return false; }
-
-	// FIXME: Test with regexp
+	if(!is.integer(code)) { return false; }
+	return true;
 }
 
 // Exports

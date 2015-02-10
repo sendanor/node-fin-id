@@ -57,6 +57,22 @@ The call `hetu.parse(hetu)` returns an object with additional information:
 		console.log("sex is " + parsed.sex());        // 'female'
 	}
 
+
+Reference number (viitenumero)
+------------------------------
+
+	var refnum = require('fin-id').refnum;
+
+To create reference number use `.create(num)`
+
+	refnum.create(1234);
+	=> '12344'
+
+To check reference number use `.check(num)`
+
+	refnum.check('12344');
+	=> true
+
 TODO
 ----
 

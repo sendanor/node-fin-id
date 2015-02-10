@@ -31,7 +31,8 @@
 module.exports = {
 	"hetu": require('./hetu.js'),
 	"refnum": require('./refnum.js'),
-	"ytunnus": require('./ytunnus.js')
+	"ytunnus": require('./ytunnus.js'),
+	"pankkiviivakoodi": require('./pankkiviivakoodi.js')
 };
 
 /* EOF */

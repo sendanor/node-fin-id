@@ -33,11 +33,12 @@
   },
   "dependencies": {
     "minimist": ">= 1.1.0 < 1.2.0",
-    "snippets": ">= 0.0.6 < 0.1.0"
+    "snippets": ">= 0.0.6 < 0.1.0",
+    "moment"       : ">= 2.9.0 < 3.0.0",
+    "nor-debug"    : ">= 0.1.52 < 0.2.0",
+    "nor-is"       : ">= 0.1.16 < 0.2.0"
   },
   "devDependencies": {
-    "nor-debug"    : "*",
-    "nor-is"       : "*",
     "lint"         : "*",
     "jshint"       : "*",
     "mocha"        : "*"

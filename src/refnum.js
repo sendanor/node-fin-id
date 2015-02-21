@@ -86,8 +86,8 @@ function refnum_create(num) {
 	return num+refnum_calculate_digit(num);
 }
 
-/** Check referer number */
-function refnum_check(refnum) {
+/** Remove check num from reference number */
+function refnum_strip(refnum) {
 	// check is referer number legal
 	// refnum = referer number, string of digits '0'..'9'
 
@@ -103,13 +103,20 @@ function refnum_check(refnum) {
 		t += c;
 	} // for
 
-	return refnum_create(t.substr(0,t.length-1))==t;
+	return t.substr(0,t.length-1);
+}
+
+/** Check referer number */
+function refnum_check(refnum) {
+	var plain = refnum_strip(refnum);
+	return refnum_create(plain)==refnum;
 }
 
 // Exports
 module.exports = {
 	"create": refnum_create,
-	"check": refnum_check
+	"check": refnum_check,
+	"strip": refnum_strip
 };
 
 /* EOF */

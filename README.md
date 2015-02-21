@@ -84,6 +84,13 @@ refnum.check('12344');
 => true
 ```
 
+To strip the number back to original use `.strip(refnum)`
+
+```javascript
+refnum.strip('12344');
+=> '1234'
+```
+
 Virtual bank transfer number (virtuaaliviivakoodi)
 --------------------------------------------------
 

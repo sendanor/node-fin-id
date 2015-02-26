@@ -12,8 +12,10 @@ identification numbers.
 Features
 --------
 
-* hetu -- Check Finnish HETU numbers
-* ytunnus -- Check Finnish corporate IDs
+* hetu -- Finnish HETU numbers
+* ytunnus -- Finnish corporate IDs
+* refnum -- Invoice reference numbers (viitenumero)
+* pankkiviivakoodi -- Virtual bank transfer numbers (virtuaaliviivakoodi)
 
 Installation for Node.js
 ------------------------

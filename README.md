@@ -123,3 +123,8 @@ TODO
 ----
 
 * IBAN bank numbers: See [International bank number (Finnish)](http://tarkistusmerkit.teppovuori.fi/tarkmerk.htm#iban)
+
+Commercial Support
+------------------
+
+You can buy commercial support from [Sendanor](http://sendanor.com/software).

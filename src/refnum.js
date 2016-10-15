@@ -47,13 +47,21 @@
 /** Remove non-digits from string */
 function refnum_leave_only_digits(s) {
 	// remove any non-digit (0..9) chars from string s
-	var s = String(s);
+	var leading = true;
+	var s = ''+s;
 	var t = '';		// new string
 	var l = s.length;	// length of old string
 	for (var i=0; i<l; i++) {
+		if(leading) {
+			if(s[i] === '0') {
+				continue;
+			} else if((s[i]>='0') && (s[i]<='9')) {
+				leading = false;
+			}
+		}
 		if ((s[i]>='0') && (s[i]<='9')) t += s[i];	// get only the digits
 	}
-	return (t);
+	return t;
 }
 
 /* Calculate check-digit needed in referer number */
@@ -91,7 +99,7 @@ function refnum_strip(refnum) {
 	// check is referer number legal
 	// refnum = referer number, string of digits '0'..'9'
 
-	var refnum = String(refnum);
+	var refnum = ''+refnum;
 
 	// this becomes to fixed string
 	var t = '';	
@@ -109,14 +117,35 @@ function refnum_strip(refnum) {
 /** Check referer number */
 function refnum_check(refnum) {
 	var plain = refnum_strip(refnum);
-	return refnum_create(plain)==refnum;
+	return refnum_create(plain) === refnum;
+}
+
+/** Parse reference number
+ * @returns {string} The parsed reference number if valid, otherwise undefined.
+ */
+function refnum_parse(refnum) {
+	refnum = refnum_leave_only_digits(refnum);
+	if(refnum_check(refnum)) {
+		return refnum;
+	}
+}
+
+/** Compare reference numbers
+ * @returns {boolean} True if a equals to b
+ */
+function refnum_cmp(a, b) {
+	a = refnum_parse(a);
+	b = refnum_parse(b);
+	return a && b && (a === b);
 }
 
 // Exports
 module.exports = {
 	"create": refnum_create,
 	"check": refnum_check,
-	"strip": refnum_strip
+	"strip": refnum_strip,
+	"parse": refnum_parse,
+	"cmp": refnum_cmp
 };
 
 /* EOF */

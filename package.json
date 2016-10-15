@@ -1,7 +1,7 @@
 {
   "name": "fin-id",
   "description": "Finland Identity Number Library",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "homepage": "http://github.com/jheusala/node-fin-id",
   "scripts": {
     "test": "npm run test-spec",
@@ -32,11 +32,11 @@
     "node": "*"
   },
   "dependencies": {
-    "minimist": ">= 1.1.0 < 1.2.0",
+    "minimist": "^1.1.0",
     "snippets": ">= 0.0.6 < 0.1.0",
-    "moment"       : ">= 2.9.0 < 3.0.0",
-    "nor-debug"    : ">= 0.1.54 < 0.2.0",
-    "nor-is"       : ">= 0.1.17 < 0.2.0"
+    "moment"       : "^2.9.0",
+    "nor-debug"    : "^1.0.0",
+    "nor-is"       : "^1.0.0"
   },
   "devDependencies": {
     "lint"         : "*",

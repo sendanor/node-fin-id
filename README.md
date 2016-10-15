@@ -93,6 +93,13 @@ refnum.strip('12344');
 => '1234'
 ```
 
+To parse the reference number `.parse(refnum)`
+
+```javascript
+refnum.parse('00001 2344');
+=> '1234'
+```
+
 Virtual bank transfer number (virtuaaliviivakoodi)
 --------------------------------------------------
 

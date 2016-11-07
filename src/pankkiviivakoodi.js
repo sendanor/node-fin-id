@@ -32,6 +32,7 @@
 var is = require('nor-is');
 var debug = require('nor-debug');
 var moment = require('moment');
+var REFNUM = require('./refnum.js');
 
 /** Parse finnish IBAN as 16 numbers
  * Example: 'FI21 1234 5600 0007 85', more examples: http://www.rbs.co.uk/corporate/international/g0/guide-to-international-business/regulatory-information/iban/iban-example.ashx
@@ -134,10 +135,36 @@ function viivakoodi_check(code) {
 	return true;
 }
 
+/** */
+function viivakoodi_parse(code) {
+	debug.assert(code).is('string');
+
+	if(!viivakoodi_check(code)) {
+		throw new TypeError("code is invalid: "+ code);
+	}
+
+	var version = code[0];
+	debug.assert(version).is('string').equals('4');
+
+	var parsed = {};
+
+	parsed.iban = 'FI' + code.substr(1, 16);
+	parsed.euros = parseInt( code.substr(1+16, 6).replace(/^0+([0-9])/, "$1") , 10);
+	parsed.cents = parseInt( code.substr(1+16+6, 2).replace(/^0+([0-9])/, "$1") , 10);
+	parsed.refnum = REFNUM.parse( code.substr(1+16+6+2+3, 20) );
+
+	var duedate = code.substr(1+16+6+2+3+20, 6);
+	//debug.log('duedate = ', duedate);
+	parsed.duedate = moment( '20' + code.substr(1+16+6+2+3+20, 6), "YYYYMMDD" ).toDate();
+
+	return parsed;
+}
+
 // Exports
 module.exports = {
 	"create": viivakoodi_create,
-	"check": viivakoodi_check
+	"check": viivakoodi_check,
+	"parse": viivakoodi_parse
 };
 
 /* EOF */

@@ -119,11 +119,22 @@ viivakoodi.create({
 => '421123456000007850000100000000000000000000000013150301'
 ```
 
-To check numbers use `.check(num)`
+To check barcodes use `.check(num)`
 
 ```javascript
 viivakoodi.check('421123456000007850000100000000000000000000000013150301');
 => true
+```
+
+To parse barcodes use `.parse(num)`
+
+```javascript
+viivakoodi.parse('421123456000007850000100000000000000000000000013150301');
+=> { iban: 'FI2112345600000785',
+  euros: 10,
+  cents: 0,
+  refnum: '13',
+  duedate: Sun Mar 01 2015 00:00:00 GMT+0000 (UTC) }
 ```
 
 TODO

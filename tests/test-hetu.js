@@ -30,7 +30,7 @@ describe('hetu', function(){
 		debug.assert( fin_id.hetu.check('010171-1985') ).is('boolean').equals(true);
 	});
 
-	it('.check() works', function(){
+	it('.parse() works', function(){
 		debug.assert( fin_id ).is('object');
 		debug.assert( fin_id.hetu ).is('object');
 		debug.assert( fin_id.hetu.parse ).is('function');

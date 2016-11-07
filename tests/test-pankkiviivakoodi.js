@@ -101,6 +101,30 @@ describe('pankkiviivakoodi', function(){
 
 	});
 
+	it('.parse() works with version 5', function(){
+		debug.assert( fin_id ).is('object');
+		debug.assert( fin_id.pankkiviivakoodi ).is('object');
+		debug.assert( fin_id.pankkiviivakoodi.parse ).is('function');
+
+		var parsed = fin_id.pankkiviivakoodi.parse('558101710000001220004829906000000559582243294671100131');
+
+		//debug.log('parsed = ', parsed);
+
+		debug.assert( parsed.iban ).is('string').equals('FI5810171000000122');
+
+		debug.assert( parsed.refnum ).is('string').equals('RF06000000559582243294671');
+
+		var duedate = parsed.duedate;
+		debug.assert( duedate ).is('date');
+		debug.assert( duedate.getFullYear() ).is('number').equals(2010);
+		debug.assert( duedate.getMonth() ).is('number').equals(0);
+		debug.assert( duedate.getDate() ).is('number').equals(31);
+
+		debug.assert( parsed.euros ).is('number').equals(482);
+		debug.assert( parsed.cents ).is('number').equals(99);
+
+	});
+
 });
 
 /* EOF */

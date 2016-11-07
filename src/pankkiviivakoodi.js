@@ -129,14 +129,15 @@ function viivakoodi_create(opts) {
 /** */
 function viivakoodi_check(code) {
 	if(!is.string(code)) { return false; }
-	if(code[0] !== '4') { return false; }
+	var version = code[0];
+	if(! ( (version === '4') || (version === '5') ) ) { return false; }
 	if(code.length !== 54) { return false; }
-	if(!is.integer(code)) { return false; }
+	//if(!is.integer(code)) { return false; }
 	return true;
 }
 
 /** */
-function viivakoodi_parse(code) {
+function viivakoodi_parse_4(code) {
 	debug.assert(code).is('string');
 
 	if(!viivakoodi_check(code)) {
@@ -158,6 +159,41 @@ function viivakoodi_parse(code) {
 	parsed.duedate = moment( '20' + code.substr(1+16+6+2+3+20, 6), "YYYYMMDD" ).toDate();
 
 	return parsed;
+}
+
+/** */
+function viivakoodi_parse_5(code) {
+	debug.assert(code).is('string');
+
+	if(!viivakoodi_check(code)) {
+		throw new TypeError("code is invalid: "+ code);
+	}
+
+	var version = code[0];
+	debug.assert(version).is('string').equals('5');
+
+	var parsed = {};
+
+	parsed.iban = 'FI' + code.substr(1, 16);
+	parsed.euros = parseInt( code.substr(1+16, 6).replace(/^0+([0-9])/, "$1") , 10);
+	parsed.cents = parseInt( code.substr(1+16+6, 2).replace(/^0+([0-9])/, "$1") , 10);
+	parsed.refnum = 'RF' + code.substr(1+16+6+2, 23);
+
+	var duedate = code.substr(1+16+6+2+23, 6);
+	//debug.log('duedate = ', duedate);
+	parsed.duedate = moment( '20' + duedate, "YYYYMMDD" ).toDate();
+
+	return parsed;
+}
+
+/** */
+function viivakoodi_parse(code) {
+	debug.assert(code).is('string');
+	var version = code[0];
+	if(version === '5') {
+		return viivakoodi_parse_5(code);
+	}
+	return viivakoodi_parse_4(code);
 }
 
 // Exports

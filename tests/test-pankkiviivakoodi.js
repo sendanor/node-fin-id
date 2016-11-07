@@ -112,7 +112,7 @@ describe('pankkiviivakoodi', function(){
 
 		debug.assert( parsed.iban ).is('string').equals('FI5810171000000122');
 
-		debug.assert( parsed.refnum ).is('string').equals('RF06000000559582243294671');
+		debug.assert( parsed.refnum ).is('string').equals('559582243294671');
 
 		var duedate = parsed.duedate;
 		debug.assert( duedate ).is('date');

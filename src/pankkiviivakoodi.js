@@ -161,6 +161,16 @@ function viivakoodi_parse_4(code) {
 	return parsed;
 }
 
+/** 
+ * @returns normal reference number
+ */
+function parse_rf_refnum(code) {
+	debug.assert(code).is('string');
+	if(code.substr(0, 2) === 'RF') {
+		return REFNUM.parse( code.substr(4) );
+	}
+}
+
 /** */
 function viivakoodi_parse_5(code) {
 	debug.assert(code).is('string');
@@ -177,7 +187,7 @@ function viivakoodi_parse_5(code) {
 	parsed.iban = 'FI' + code.substr(1, 16);
 	parsed.euros = parseInt( code.substr(1+16, 6).replace(/^0+([0-9])/, "$1") , 10);
 	parsed.cents = parseInt( code.substr(1+16+6, 2).replace(/^0+([0-9])/, "$1") , 10);
-	parsed.refnum = 'RF' + code.substr(1+16+6+2, 23);
+	parsed.refnum = parse_rf_refnum('RF' + code.substr(1+16+6+2, 23));
 
 	var duedate = code.substr(1+16+6+2+23, 6);
 	//debug.log('duedate = ', duedate);

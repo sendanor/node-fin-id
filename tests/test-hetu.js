@@ -28,6 +28,16 @@ describe('hetu', function(){
 		debug.assert( fin_id.hetu.check('010171-1000') ).is('boolean').equals(true);
 		debug.assert( fin_id.hetu.check('010171-1234') ).is('boolean').equals(false);
 		debug.assert( fin_id.hetu.check('010171-1985') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('010594Y9032') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('020594X903P') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('030594W903B') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('040594V9030') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('050594U903M') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('010516B903X') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('020516C903K') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('030516D9037') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('010501E9032') ).is('boolean').equals(true);
+		debug.assert( fin_id.hetu.check('020503F9037') ).is('boolean').equals(true);
 	});
 
 	it('.parse() works', function(){
@@ -44,6 +54,13 @@ describe('hetu', function(){
 		debug.assert( date.getDate() ).is('number').equals(1);
 
 		debug.assert( parsed.sex() ).is('string').equals('female');
+
+		debug.assert( fin_id.hetu.parse('030516D9026').date().getFullYear() ).is('number').equals(2016);
+		debug.assert( fin_id.hetu.parse('010501E9032').date().getFullYear() ).is('number').equals(2001);
+		debug.assert( fin_id.hetu.parse('020502E902X').date().getFullYear() ).is('number').equals(2002);
+		debug.assert( fin_id.hetu.parse('020503F9037').date().getFullYear() ).is('number').equals(2003);
+		debug.assert( fin_id.hetu.parse('020504A902E').date().getFullYear() ).is('number').equals(2004);
+		debug.assert( fin_id.hetu.parse('050594U902L').date().getFullYear() ).is('number').equals(1994);
 	});
 
 });

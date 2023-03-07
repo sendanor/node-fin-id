@@ -75,7 +75,11 @@ function parse_hetu (hetu) {
 		if ((dd<1) || (dd>31)) { return; }
 		if ((mm<1) || (mm>12)) { return; }
 		if (isNaN(yy) || (yy<0)) { return; }
-		if ((century!=='+') && (century!=='-') && (century!=='A')) { return; }
+		if ((century!=='+') && (century!=='-') && (century!=='A')
+		&& (century!=='B') && (century!=='C') && (century!=='D')
+		&& (century!=='E') && (century!=='F') && (century!=='Y')
+		&& (century!=='X') && (century!=='W') && (century!=='V')
+		&& (century!=='U')) { return; }
 		if (isNaN(id) || (id<0)) { return; }
 
 		that.x = century;
@@ -107,9 +111,22 @@ function parse_hetu (hetu) {
 	function parse_hetu_date(id) {
 		function parse_century(x) {
 			switch(x) {
-			case '+': return 1800;
-			case '-': return 1900;
-			case 'A': return 2000;
+        case '+':
+          return 1800
+        case '-':
+        case 'Y':
+        case 'X':
+        case 'W':
+        case 'V':
+        case 'U':
+          return 1900
+        case 'A':
+        case 'B':
+        case 'C':
+        case 'D':
+        case 'E':
+        case 'F':
+          return 2000
 			}
 		}
 		var century = parse_century(id.x);
